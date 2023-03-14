@@ -1,0 +1,55 @@
+.page
+{
+    width: min(100% - 2rem, 1200px);
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-inline: auto;
+}
+
+.section
+{
+    width: 100%;
+    padding: 1rem;
+}
+
+.section_color_orange
+{
+    background-color: orange;
+}
+
+.cards 
+{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    /* отступы между блоками gap */
+    gap: 1rem; 
+    justify-content: center;
+}
+
+.cards__one-card
+{
+    display: block;
+    box-sizing: border-box;
+    background-color: yellowgreen;
+    width: calc((100% - 2rem) / 3);
+    height: 300px;
+    border-radius: 10px;
+    padding-inline: 1rem;
+    transition: 1s;
+}
+
+/* медиа запросы */
+@media(max-width: 900px){
+    .cards__one-card{
+        width: calc((100% - 2rem) / 2);
+    }
+}
+
+@media (max-width: 600px){
+    .cards__one-card {
+        width: 100%;
+    }
+}
