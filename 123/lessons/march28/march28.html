@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ежемесячный платеж</title>
+    <style>
+        *{
+    box-sizing: border-box;
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    }
+        input{
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 1em;
+    padding-inline: 2em;
+    letter-spacing: 0.1em;
+    transition: 0.5s;
+    border-radius: 50px;
+    cursor: pointer;
+    }
+        button{
+        background: #fccb3c;
+        border-radius: 20px;
+    }
+    </style>
+</head>
+<body>
+    <!-- Посчитать сколько человек будет платить за кредит. Несколько полей: срок (сколько месяцев), процентная ставка, сумма.  
+        В конце кнопка  "расчет" с подсчетом ежемесячного платежа. -->
+    <script src="march28.js"></script>
+
+    <input type="text" id="term" placeholder="Введите срок"><br>
+    <input type="text" id="rate" placeholder="Введите процент"><br>
+    <input type="text" id="amount" placeholder="Введите сумму"><br>
+    <button id="btn">рассчет</button>
+    <div id="result"></div>
+
+</body>
+</html>
