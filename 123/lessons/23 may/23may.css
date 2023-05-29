@@ -1,0 +1,120 @@
+* {
+    box-sizing: border-box;
+    outline: none;
+}
+
+body {
+    background-image: url('wallpaperflare.com_wallpaper.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+:root {
+    --fs-main: 1.5rem;
+    --fs-big: 2rem;
+
+    --color-main: white;
+    --color-active: rgb(0, 0, 0);
+    --color-msg: rgb(255, 255, 255);
+
+    --bg-color-main: rgba(255,255,255, 0.1);
+    --bg-color-active: rgba(219, 100, 179, 0.5);
+    --bg-color-msg-bot: rgb(77, 0, 107, 0.3);
+    --bg-color-msg-player: rgb(220, 181, 228);
+
+    --brd-color: rgba(255,255,255,0.3);
+
+    --brd-radius1: 10px;
+    --brd-radius2: 20px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: var(--color-main);
+    opacity: 1; /* Firefox */
+}
+
+.container {
+    width: min(100% - 40px, 700px);
+    height: 900px;
+    margin-inline: auto;
+    margin-top: 50px;
+    padding: 20px;
+    border: 1px solid var(--brd-color);
+    border-radius: var(--brd-radius2);
+    background-color: var(--bg-color-main);
+    backdrop-filter: blur(10px) brightness(90%);
+}
+
+.game__frame {
+    display: grid;
+    align-content: end;
+    width: 100%;
+    height: 750px;
+    overflow: auto;
+    padding: 20px;
+    border: 1px solid var(--brd-color);
+    border-radius: var(--brd-radius2);
+}
+
+.game-controls {
+    display: grid;
+    grid-template-columns: 10fr 2fr;
+    gap: 10px;
+    padding: 20px;
+    padding-inline: 0;
+}
+
+.game-controls__input {
+    font-size: var(--fs-big);
+    color: var(--color-main);
+    padding: 0.5em;
+    display: block;
+    border: 1px solid var(--brd-color);
+    border-radius: var(--brd-radius1);
+    text-align: center;
+    background-color: inherit;
+}
+
+.game-controls__but {
+    font-size: var(--fs-big);
+    color: var(--color-main);
+    border-radius: var(--brd-radius1);
+    background-color: var(--bg-color-main);
+    border: 1px solid var(--brd-color);
+    cursor: pointer;
+    background-color: inherit;
+}
+
+.game-controls__but:hover {
+    background-color: var(--bg-color-active);
+    color: var(--color-active);
+}
+
+.bubble {
+    margin-top: 10px;
+    width: fit-content;
+    max-width: 80%;
+    padding: 0.3em;
+    padding-inline: 1em;
+    font-size: var(--fs-main);
+}
+
+
+.bot {
+    background-color: var(--bg-color-msg-bot);
+    border-radius: var(--brd-radius1) var(--brd-radius2) var(--brd-radius2) var(--brd-radius2);
+    justify-self: start;
+    color: var(--color-msg);
+}
+
+.player {
+    background-color: var(--bg-color-msg-player);
+    border-radius: var(--brd-radius2) var(--brd-radius1) var(--brd-radius2) var(--brd-radius2);
+    justify-self: end;
+}
