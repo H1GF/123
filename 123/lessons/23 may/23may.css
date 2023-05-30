@@ -1,6 +1,7 @@
 * {
     box-sizing: border-box;
     outline: none;
+    font-family: Verdana, Arial, sans-serif;
 }
 
 body {
@@ -21,11 +22,13 @@ body {
     --bg-color-active: rgba(219, 100, 179, 0.5);
     --bg-color-msg-bot: rgb(77, 0, 107, 0.3);
     --bg-color-msg-player: rgb(220, 181, 228);
+    --bg-color-srceen: rgba(255, 179, 37, 0.5);
 
     --brd-color: rgba(255,255,255,0.3);
+    --brd-color-active: black;
 
-    --brd-radius1: 10px;
-    --brd-radius2: 20px;
+    --brd-radius1: 40px;
+    --brd-radius2: 10px;
 }
 
 input::-webkit-outer-spin-button,
@@ -48,7 +51,7 @@ input::-webkit-inner-spin-button {
     border: 1px solid var(--brd-color);
     border-radius: var(--brd-radius2);
     background-color: var(--bg-color-main);
-    backdrop-filter: blur(10px) brightness(90%);
+    box-shadow: 1px 1px 40px 10px black;
 }
 
 .game__frame {
@@ -60,6 +63,7 @@ input::-webkit-inner-spin-button {
     padding: 20px;
     border: 1px solid var(--brd-color);
     border-radius: var(--brd-radius2);
+    background-color: var(--bg-color-srceen);
 }
 
 .game-controls {
@@ -111,10 +115,14 @@ input::-webkit-inner-spin-button {
     border-radius: var(--brd-radius1) var(--brd-radius2) var(--brd-radius2) var(--brd-radius2);
     justify-self: start;
     color: var(--color-msg);
+    border: 1px solid var(--brd-color-active);
+    box-shadow: 5px 2px 2px black;
 }
 
 .player {
     background-color: var(--bg-color-msg-player);
     border-radius: var(--brd-radius2) var(--brd-radius1) var(--brd-radius2) var(--brd-radius2);
     justify-self: end;
+    border: 1px solid var(--brd-color-active);
+    box-shadow: 5px 2px 2px black;
 }
