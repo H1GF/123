@@ -27,8 +27,8 @@ body {
     --brd-color: rgba(255,255,255,0.3);
     --brd-color-active: black;
 
-    --brd-radius1: 40px;
-    --brd-radius2: 10px;
+    --brd-radius1: 10px;
+    --brd-radius2: 60px;
 }
 
 input::-webkit-outer-spin-button,
@@ -109,10 +109,18 @@ input::-webkit-inner-spin-button {
     font-size: var(--fs-main);
 }
 
-
 .bot {
     background-color: var(--bg-color-msg-bot);
-    border-radius: var(--brd-radius1) var(--brd-radius2) var(--brd-radius2) var(--brd-radius2);
+    border-radius: var(--brd-radius2) var(--brd-radius2) var(--brd-radius2) var(--brd-radius2);
+    justify-self: start;
+    color: var(--color-msg);
+    border: 1px solid var(--brd-color-active);
+    box-shadow: 5px 2px 2px black;
+}
+
+.bot1{
+    background-color: var(--bg-color-msg-bot);
+    border-radius: var(--brd-radius2) var(--brd-radius2) var(--brd-radius2) var(--brd-radius1);
     justify-self: start;
     color: var(--color-msg);
     border: 1px solid var(--brd-color-active);
@@ -121,7 +129,7 @@ input::-webkit-inner-spin-button {
 
 .player {
     background-color: var(--bg-color-msg-player);
-    border-radius: var(--brd-radius2) var(--brd-radius1) var(--brd-radius2) var(--brd-radius2);
+    border-radius: var(--brd-radius2) var(--brd-radius2) var(--brd-radius2) var(--brd-radius2);
     justify-self: end;
     border: 1px solid var(--brd-color-active);
     box-shadow: 5px 2px 2px black;

@@ -4,7 +4,7 @@ export default class generation {
         // Ключевые переменные и их значения
         this.game = game;
         this.counter = 0;
-        this.generation = 0;
+        this.number = 0;
         // Шаблоны моих сообщений с угадыванием номера
         this.userMsgChoices = ["Ваш номер ",
                             "Хорошо..Может это ",
@@ -14,7 +14,7 @@ export default class generation {
                             "Попробуй еще раз. Мой номер ",
                             "Хорошая попытка, мой номер "];
         //Вводим классы из html
-        this.screen = this.game.querySelector(".game__frame");
+        this.frame = this.game.querySelector(".game__frame");
         this.sendBtn = this.game.querySelector(".game-controls__but");
         this.inputGuess = this.game.querySelector(".game-controls__input");
         //По клику на кнопку активирует функцию checkGuess
@@ -24,28 +24,28 @@ export default class generation {
     }
 
     init() {
-        this.setGenerationNumber(this.getRandomInt(50)); //Генерация числа
+        this.saveNumber(this.getRandomInt(50)); //Вводимое число записывается в генератор
         //Слова бота в начале игры
-        this.say("Привет!", "bot");
+        this.say("Привет! Это игра 'Угадай число'!", "bot");
         this.say("Я загадал число от 0 до 50", "bot");
         this.say("Сможешь угадать?", "bot");
     }
-
-    setGenerationNumber(num) {
-        this.generation = num;
+    //Функция чтобы сохранить вносимое число
+    saveNumber(num) {
+        this.number = num;
     }
-
-    getGeneration() {
-        return this.generation;
+    //Функция для возврата числа пользователя
+    getNumber() {
+        return this.number;
     }
-
-    getRandomInt(max) {
-        return Math.floor(Math.random() * max);
+    //Функция генерирует число бота
+    getRandomInt() {
+        return Math.floor(Math.random() * 50);
     }
-
+    //Функция для всплывающих сообщений 
     say(message, cls) {
         const msgBubble = this.createBubble(message, cls);
-        this.screen.append(msgBubble)
+        this.frame.append(msgBubble);
     }
 
     randomChoice(choices) {
@@ -54,27 +54,29 @@ export default class generation {
     //Функция для определения угадали ли число
     checkGuess() {
         const checkingNum = parseInt(this.inputGuess.value);
-        console.log( checkingNum, this.getGeneration() )
+        console.log( checkingNum, this.getNumber() );
         //Отправка сообщения игрока в формате: (шаблонный текст)(запрос)? 
         this.say(this.randomChoice(this.userMsgChoices)+checkingNum+'?', "player");
         //Если число бота больше/меньше моего, то выводим сообщение в формате: (шаблонный текст) больше/меньше
-        if (checkingNum < parseInt(this.getGeneration())) {
+        if (checkingNum < parseInt(this.getNumber())) {
         this.say(this.randomChoice(this.botMsgChoices) + "больше", "bot");
         }
-        else if (checkingNum > parseInt(this.getGeneration())) {
+        else if (checkingNum > parseInt(this.getNumber())) {
         this.say(this.randomChoice(this.botMsgChoices) + "меньше", "bot");
         }
         else {
-        //Угадано число
-        this.say("Ура, ты выйграл! Повторим?", "bot");
+        this.say("Ура, ты выйграл!", "bot");
         }
     }
-    //Отображение запросов в виде сообщений и его появление
-    createBubble(message, cls) {
+
+    //Создание диалога в виде сообщений 
+    createBubble(message, cls, cout) {
         const bubble = document.createElement("div");
         bubble.classList.add("bubble");
-        bubble.classList.add(cls)
+        bubble.classList.add(cls);
         bubble.innerHTML = message;
+        cout ++;
         return bubble;
     }
 }
+//Нужно добавить функцию, в которой если игрок 10с бездействует - выводить сообщение
