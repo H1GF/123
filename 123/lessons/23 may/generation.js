@@ -2,6 +2,7 @@
 export default class generation {
     constructor(game) {
         // Ключевые переменные и их значения
+        this.time = Date.now();
         this.game = game;
         this.counter = 0;
         this.number = 0;
@@ -22,7 +23,6 @@ export default class generation {
             this.checkGuess();
         });
     }
-
     init() {
         this.saveNumber(this.getRandomInt(50)); //Вводимое число записывается в генератор
         //Слова бота в начале игры
@@ -49,8 +49,9 @@ export default class generation {
     }
 
     randomChoice(choices) {
-      return choices[ Math.floor(Math.random() * choices.length) ];
+        return choices[ Math.floor(Math.random() * choices.length) ];
     }
+    
     //Функция для определения угадали ли число
     checkGuess() {
         const checkingNum = parseInt(this.inputGuess.value);
@@ -69,14 +70,34 @@ export default class generation {
         }
     }
 
+    MessageTime(seconds){  
+        var today = new Date();
+        var seconds = today.getUTCSeconds();
+        console.log(seconds);
+
+    //     console.log(this.time);
+    //     this.time = this.time / 1000;
+    //     let t = this.time % 60; // секунды
+    //     if(t > 10) {
+    //         if(Number(String(this.time)[String(this.time).length-1]) < 5 && Number(String(this.time)[String(this.time).length-1]) > 1) {
+    //             return this.say('Потропись', "bot");
+    //         }
+    //     }
+    // }
+    }
     //Создание диалога в виде сообщений 
-    createBubble(message, cls, cout) {
+    createBubble(message, cls) {
         const bubble = document.createElement("div");
+        
         bubble.classList.add("bubble");
         bubble.classList.add(cls);
         bubble.innerHTML = message;
-        cout ++;
+        
         return bubble;
     }
 }
+    
+
+
 //Нужно добавить функцию, в которой если игрок 10с бездействует - выводить сообщение
+//this.say('Потропись', "bot");
