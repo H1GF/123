@@ -1,0 +1,30 @@
+:root{
+    --offset-base-size: 4px;
+}
+
+.title{
+    font-family: 'Press Start 2P', cursive;
+}
+.p-1{
+    padding: var(--offset-base-size);
+}
+
+.p-2{
+    padding: calc(var(--offset-base-size)*2);
+}
+
+.p-3{
+    padding: calc(var(--offset-base-size)*3);
+}
+
+.p-5{
+    padding: calc(var(--offset-base-size)*5);
+}
+
+.pt-1{
+    padding: var(--offset-base-size);
+}
+
+.mt-1{
+    margin-top: calc(var(--offset-base-size)*10);
+}
